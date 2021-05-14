@@ -9,7 +9,23 @@ class UserService {
       return null;
     }
   };
-
+  edit = (id, user) => {
+    if (user && id) {
+      return UserRepository.update(id, user);
+    } else {
+      return null;
+    }
+  };
+  getAll = () => {
+    return UserRepository.getAll();
+  };
+  delete = (id) => {
+    if (id) {
+      return UserRepository.delete(id);
+    } else {
+      return null;
+    }
+  };
   search(search) {
     const item = UserRepository.getOne(search);
     if (!item) {
